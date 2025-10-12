@@ -1,31 +1,31 @@
-using Core.Interfaces;
-
 namespace DAL.DAO;
 
-public class ClientDao : IPrimary
+public class AccountDao
 {
     public Guid Id { get; set; }
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public string Patronymic { get; set; } = string.Empty;
-    public DateTime DateOfBirth { get; set; }
     
-    public ClientDao(Guid id, string firstName, string lastName, string patronymic, DateTime dateOfBirth)
+    public long DateBorn { get; set; }
+    
+    
+    public AccountDao(Guid id, string firstName, string lastName, string patronymic, long dateBorn)
     {
         Id = id;
         FirstName = firstName;
         LastName = lastName;
         Patronymic = patronymic;
-        DateOfBirth = dateOfBirth;
+        DateBorn = dateBorn;
     }
 
-    public ClientDao()
+    public AccountDao()
     {
         
     }
     
     public override string ToString()
     {
-        return $"{Id};{FirstName};{LastName};{Patronymic};{DateOfBirth:o}";
+        return $"{Id};{FirstName};{LastName};{Patronymic};{DateBorn}";
     }
 }

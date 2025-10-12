@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIL", "UIL\UIL.csproj", "{40A79205-C96B-4488-A778-6CECB5862F8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapping", "Mapping\Mapping.csproj", "{97B64EA6-B086-4E47-A287-6635824F470F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{40A79205-C96B-4488-A778-6CECB5862F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40A79205-C96B-4488-A778-6CECB5862F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40A79205-C96B-4488-A778-6CECB5862F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97B64EA6-B086-4E47-A287-6635824F470F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B64EA6-B086-4E47-A287-6635824F470F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B64EA6-B086-4E47-A287-6635824F470F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B64EA6-B086-4E47-A287-6635824F470F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

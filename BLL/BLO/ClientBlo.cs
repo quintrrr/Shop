@@ -9,7 +9,7 @@ public class ClientBlo : IPrimary
     private string _firstName = string.Empty;
     private string _lastName = string.Empty;
 
-    private DateTime? _birthday;
+    private DateTime _birthday;
     
     public string Patronymic { get; set; } = string.Empty;
     
@@ -37,7 +37,7 @@ public class ClientBlo : IPrimary
         }
     }
     
-    public DateTime? Birthday { 
+    public DateTime Birthday { 
         get => _birthday;
         set
         {
@@ -48,6 +48,19 @@ public class ClientBlo : IPrimary
             
             _birthday = value;
         }
+    }
+    
+    public int Age {
+        get
+        {
+            if (DateTime.Now.Month > Birthday.Month ||
+                DateTime.Now.Month == Birthday.Month && DateTime.Now.Day >= Birthday.Day)
+            {
+                return DateTime.Now.Year - Birthday.Year;
+            }
+            return DateTime.Now.Year - Birthday.Year - 1;
+        }
+        
     }
 
     public ClientBlo(
