@@ -17,17 +17,17 @@ class Program
         const string dataSource = "shop.db";
         var dbContext = new ShopEntityContext(dataSource);
         
-        TestShops(new ShopDaoDataBaseRepository(dbContext));
+        TestShops(new ShopDaoDBRepository(dbContext));
         TestShops(new ShopDaoFileRepository());
         TestShops(new ShopDaoJsonRepository("shops.json"));
         TestShops(new ShopDaoXmlRepository("shops.xml"));
         
-        TestClients(new ClientDaoDataBaseRepository(dbContext));
+        TestClients(new ClientDaoDBRepository(dbContext));
         TestClients(new ClientDaoFileRepository());
         TestClients(new ClientDaoJsonRepository("clients.json"));
         TestClients(new ClientDaoXmlRepository("clients.xml"));
         
-        TestGoods(new GoodDaoDataBaseRepository(dbContext));
+        TestGoods(new GoodDaoDBRepository(dbContext));
         TestGoods(new GoodDaoFileRepository());
         TestGoods(new GoodDaoJsonRepository("goods.json"));
         TestGoods(new GoodDaoXmlRepository("goods.xml"));

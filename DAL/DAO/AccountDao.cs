@@ -1,6 +1,8 @@
+using Core.Interfaces;
+
 namespace DAL.DAO;
 
-public class AccountDao
+public class AccountDao : IPrimary
 {
     public Guid Id { get; set; }
     public string FirstName { get; set; } = string.Empty;

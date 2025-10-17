@@ -9,6 +9,7 @@ public sealed class ShopEntityContext : DbContext
     public DbSet<ShopDao> Shops { get; set; }
     public DbSet<GoodDao> Goods { get; set; }
     public DbSet<ClientDao> Clients { get; set; }
+    public DbSet<AccountDao> Accounts { get; set; }
 
     public ShopEntityContext(string dataSource)
     {
