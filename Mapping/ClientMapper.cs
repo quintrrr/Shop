@@ -1,11 +1,12 @@
 using BLL.BLO;
 using DAL.DAO;
+using Core.Interfaces;
 
 namespace Mapping;
 
-public static class ClientAccountAdapter
+public class ClientMapper : IMapper<ClientBlo, AccountDao>
 {
-    public static AccountDao ToDao(ClientBlo clientBlo)
+    public AccountDao ToDao(ClientBlo clientBlo)
     {
         return new AccountDao
         {
@@ -13,11 +14,12 @@ public static class ClientAccountAdapter
             FirstName = clientBlo.FirstName,
             LastName = clientBlo.LastName,
             Patronymic = clientBlo.Patronymic,
-            DateBorn = new DateTimeOffset(clientBlo.Birthday, TimeSpan.Zero).ToUnixTimeSeconds(),
+            DateBorn = new DateTimeOffset(clientBlo.Birthday ?? new DateTime(1900, 1, 1),
+                TimeSpan.Zero).ToUnixTimeSeconds(),
         };
     }
 
-    public static ClientBlo ToBlo(AccountDao accountDao)
+    public ClientBlo ToBlo(AccountDao accountDao)
     {
         return new ClientBlo(
             accountDao.Id,

@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Core.Interfaces;
 
 namespace BLL.BLO;
@@ -40,6 +41,7 @@ public class ShopBlo : IPrimary
         Code = code;
     }
 
+    [JsonConstructor]
     public ShopBlo(string name, int code)
     {
         Id = Guid.NewGuid();

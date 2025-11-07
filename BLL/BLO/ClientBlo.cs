@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Core.Interfaces;
 
 namespace BLL.BLO;
@@ -9,7 +10,7 @@ public class ClientBlo : IPrimary
     private string _firstName = string.Empty;
     private string _lastName = string.Empty;
 
-    private DateTime _birthday;
+    private DateTime? _birthday;
     
     public string Patronymic { get; set; } = string.Empty;
     
@@ -37,7 +38,7 @@ public class ClientBlo : IPrimary
         }
     }
     
-    public DateTime Birthday { 
+    public DateTime? Birthday { 
         get => _birthday;
         set
         {
@@ -53,16 +54,17 @@ public class ClientBlo : IPrimary
     public int Age {
         get
         {
-            if (DateTime.Now.Month > Birthday.Month ||
-                DateTime.Now.Month == Birthday.Month && DateTime.Now.Day >= Birthday.Day)
+            if (DateTime.Now.Month > Birthday?.Month ||
+                DateTime.Now.Month == Birthday?.Month && DateTime.Now.Day >= Birthday?.Day)
             {
-                return DateTime.Now.Year - Birthday.Year;
+                return DateTime.Now.Year - (Birthday?.Year ?? 0);
             }
-            return DateTime.Now.Year - Birthday.Year - 1;
+            return DateTime.Now.Year - (Birthday?.Year ?? 0) - 1;
         }
         
     }
 
+    [JsonConstructor]
     public ClientBlo(
         string firstName,
         string lastName,
@@ -75,6 +77,7 @@ public class ClientBlo : IPrimary
         Patronymic = patronymic;
         Birthday = birthday ?? new DateTime(1900, 1, 1);
     }
+    
     
     public ClientBlo(
         Guid id,

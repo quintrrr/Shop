@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace BLL.BLO;
 
 public class GoodBlo
@@ -31,6 +33,7 @@ public class GoodBlo
         }
     }
 
+    
     public GoodBlo(Guid id, string name, int code)
     {
         Id = id;
@@ -38,6 +41,7 @@ public class GoodBlo
         Code = code;
     }
 
+    [JsonConstructor]
     public GoodBlo(string name, int code)
     {
         Id = Guid.NewGuid();
